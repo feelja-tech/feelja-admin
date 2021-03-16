@@ -1,0 +1,60 @@
+{
+  "name": "nudge-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.3.7",
+    "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
+    "aws-sdk": "^2.834.0",
+    "dotenv": "^8.2.0",
+    "express-basic-auth": "^1.2.0",
+    "graphql": "^15.5.0",
+    "moment": "^2.29.1",
+    "postgraphile": "^4.11.0",
+    "postgraphile-plugin-connection-filter": "^2.1.1",
+    "postgraphile-plugin-fulltext-filter": "^1.0.0-beta.7",
+    "prop-types": "^15.7.2",
+    "ra-data-graphql": "^3.11.4",
+    "ra-data-json-server": "^3.12.0",
+    "ra-postgraphile": "^4.2.0",
+    "react": "^17.0.1",
+    "react-admin": "^3.12.0",
+    "react-admin-json-view": "^1.1.0",
+    "react-dom": "^17.0.1",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "4.0.1",
+    "recompose": "^0.30.0",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "watch": "cra-build-watch"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cra-build-watch": "^3.4.0"
+  }
+}

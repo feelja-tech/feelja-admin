@@ -1,0 +1,6527 @@
+"""
+A floating point number that requires more precision than IEEE 754 binary 64
+"""
+scalar BigFloat
+
+"""
+A filter to be used against BigFloat fields. All fields are combined with a logical ‘and.’
+"""
+input BigFloatFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: BigFloat
+
+  """Equal to the specified value."""
+  equalTo: BigFloat
+
+  """Greater than the specified value."""
+  greaterThan: BigFloat
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: BigFloat
+
+  """Included in the specified list."""
+  in: [BigFloat!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: BigFloat
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: BigFloat
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: BigFloat
+
+  """Not equal to the specified value."""
+  notEqualTo: BigFloat
+
+  """Not included in the specified list."""
+  notIn: [BigFloat!]
+}
+
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
+
+"""
+A filter to be used against BigInt fields. All fields are combined with a logical ‘and.’
+"""
+input BigIntFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: BigInt
+
+  """Equal to the specified value."""
+  equalTo: BigInt
+
+  """Greater than the specified value."""
+  greaterThan: BigInt
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: BigInt
+
+  """Included in the specified list."""
+  in: [BigInt!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: BigInt
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: BigInt
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: BigInt
+
+  """Not equal to the specified value."""
+  notEqualTo: BigInt
+
+  """Not included in the specified list."""
+  notIn: [BigInt!]
+}
+
+"""
+A filter to be used against BigInt List fields. All fields are combined with a logical ‘and.’
+"""
+input BigIntListFilter {
+  """Any array item is equal to the specified value."""
+  anyEqualTo: BigInt
+
+  """Any array item is greater than the specified value."""
+  anyGreaterThan: BigInt
+
+  """Any array item is greater than or equal to the specified value."""
+  anyGreaterThanOrEqualTo: BigInt
+
+  """Any array item is less than the specified value."""
+  anyLessThan: BigInt
+
+  """Any array item is less than or equal to the specified value."""
+  anyLessThanOrEqualTo: BigInt
+
+  """Any array item is not equal to the specified value."""
+  anyNotEqualTo: BigInt
+
+  """Contained by the specified list of values."""
+  containedBy: [BigInt]
+
+  """Contains the specified list of values."""
+  contains: [BigInt]
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: [BigInt]
+
+  """Equal to the specified value."""
+  equalTo: [BigInt]
+
+  """Greater than the specified value."""
+  greaterThan: [BigInt]
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: [BigInt]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: [BigInt]
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: [BigInt]
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: [BigInt]
+
+  """Not equal to the specified value."""
+  notEqualTo: [BigInt]
+
+  """Overlaps the specified list of values."""
+  overlaps: [BigInt]
+}
+
+"""
+A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’
+"""
+input BooleanFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Boolean
+
+  """Greater than the specified value."""
+  greaterThan: Boolean
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Boolean
+
+  """Included in the specified list."""
+  in: [Boolean!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: Boolean
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Boolean
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Boolean
+
+  """Not equal to the specified value."""
+  notEqualTo: Boolean
+
+  """Not included in the specified list."""
+  notIn: [Boolean!]
+}
+
+"""All input for the create `Match` mutation."""
+input CreateMatchInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Match` to be created by this mutation."""
+  match: MatchInput!
+}
+
+"""The output of our create `Match` mutation."""
+type CreateMatchPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Match` that was created by this mutation."""
+  match: Match
+
+  """An edge for our `Match`. May be used by Relay 1."""
+  matchEdge(
+    """The method to use when ordering `Match`."""
+    orderBy: [MatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MatchesEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the create `Meeting` mutation."""
+input CreateMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Meeting` to be created by this mutation."""
+  meeting: MeetingInput!
+}
+
+"""The output of our create `Meeting` mutation."""
+type CreateMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Meeting` that was created by this mutation."""
+  meeting: Meeting
+
+  """An edge for our `Meeting`. May be used by Relay 1."""
+  meetingEdge(
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `VideoCall` that is related to this `Meeting`."""
+  videoCall: VideoCall
+}
+
+"""All input for the create `ObanBeat` mutation."""
+input CreateObanBeatInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `ObanBeat` to be created by this mutation."""
+  obanBeat: ObanBeatInput!
+}
+
+"""The output of our create `ObanBeat` mutation."""
+type CreateObanBeatPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ObanBeat` that was created by this mutation."""
+  obanBeat: ObanBeat
+
+  """An edge for our `ObanBeat`. May be used by Relay 1."""
+  obanBeatEdge(
+    """The method to use when ordering `ObanBeat`."""
+    orderBy: [ObanBeatsOrderBy!] = [NATURAL]
+  ): ObanBeatsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the create `ObanJob` mutation."""
+input CreateObanJobInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `ObanJob` to be created by this mutation."""
+  obanJob: ObanJobInput!
+}
+
+"""The output of our create `ObanJob` mutation."""
+type CreateObanJobPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ObanJob` that was created by this mutation."""
+  obanJob: ObanJob
+
+  """An edge for our `ObanJob`. May be used by Relay 1."""
+  obanJobEdge(
+    """The method to use when ordering `ObanJob`."""
+    orderBy: [ObanJobsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ObanJobsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the create `SchemaMigration` mutation."""
+input CreateSchemaMigrationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `SchemaMigration` to be created by this mutation."""
+  schemaMigration: SchemaMigrationInput!
+}
+
+"""The output of our create `SchemaMigration` mutation."""
+type CreateSchemaMigrationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `SchemaMigration` that was created by this mutation."""
+  schemaMigration: SchemaMigration
+
+  """An edge for our `SchemaMigration`. May be used by Relay 1."""
+  schemaMigrationEdge(
+    """The method to use when ordering `SchemaMigration`."""
+    orderBy: [SchemaMigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SchemaMigrationsEdge
+}
+
+"""All input for the create `SocialAccount` mutation."""
+input CreateSocialAccountInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `SocialAccount` to be created by this mutation."""
+  socialAccount: SocialAccountInput!
+}
+
+"""The output of our create `SocialAccount` mutation."""
+type CreateSocialAccountPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `SocialAccount` that was created by this mutation."""
+  socialAccount: SocialAccount
+
+  """An edge for our `SocialAccount`. May be used by Relay 1."""
+  socialAccountEdge(
+    """The method to use when ordering `SocialAccount`."""
+    orderBy: [SocialAccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SocialAccountsEdge
+
+  """Reads a single `UserProfile` that is related to this `SocialAccount`."""
+  userProfile: UserProfile
+}
+
+"""All input for the create `UserFile` mutation."""
+input CreateUserFileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserFile` to be created by this mutation."""
+  userFile: UserFileInput!
+}
+
+"""The output of our create `UserFile` mutation."""
+type CreateUserFilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `UserFile` that was created by this mutation."""
+  userFile: UserFile
+
+  """An edge for our `UserFile`. May be used by Relay 1."""
+  userFileEdge(
+    """The method to use when ordering `UserFile`."""
+    orderBy: [UserFilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFilesEdge
+
+  """Reads a single `UserProfile` that is related to this `UserFile`."""
+  userProfile: UserProfile
+}
+
+"""All input for the create `UserFsmLog` mutation."""
+input CreateUserFsmLogInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserFsmLog` to be created by this mutation."""
+  userFsmLog: UserFsmLogInput!
+}
+
+"""The output of our create `UserFsmLog` mutation."""
+type CreateUserFsmLogPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserFsmLog`."""
+  user: User
+
+  """The `UserFsmLog` that was created by this mutation."""
+  userFsmLog: UserFsmLog
+
+  """An edge for our `UserFsmLog`. May be used by Relay 1."""
+  userFsmLogEdge(
+    """The method to use when ordering `UserFsmLog`."""
+    orderBy: [UserFsmLogsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFsmLogsEdge
+}
+
+"""All input for the create `User` mutation."""
+input CreateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `User` to be created by this mutation."""
+  user: UserInput!
+}
+
+"""All input for the create `UserMatch` mutation."""
+input CreateUserMatchInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserMatch` to be created by this mutation."""
+  userMatch: UserMatchInput!
+}
+
+"""The output of our create `UserMatch` mutation."""
+type CreateUserMatchPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """Reads a single `Match` that is related to this `UserMatch`."""
+  match: Match
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMatch`."""
+  user: User
+
+  """The `UserMatch` that was created by this mutation."""
+  userMatch: UserMatch
+
+  """An edge for our `UserMatch`. May be used by Relay 1."""
+  userMatchEdge(
+    """The method to use when ordering `UserMatch`."""
+    orderBy: [UserMatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMatchesEdge
+}
+
+"""All input for the create `UserMeeting` mutation."""
+input CreateUserMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserMeeting` to be created by this mutation."""
+  userMeeting: UserMeetingInput!
+}
+
+"""The output of our create `UserMeeting` mutation."""
+type CreateUserMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """Reads a single `Meeting` that is related to this `UserMeeting`."""
+  meeting: Meeting
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMeeting`."""
+  user: User
+
+  """The `UserMeeting` that was created by this mutation."""
+  userMeeting: UserMeeting
+
+  """An edge for our `UserMeeting`. May be used by Relay 1."""
+  userMeetingEdge(
+    """The method to use when ordering `UserMeeting`."""
+    orderBy: [UserMeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMeetingsEdge
+}
+
+"""The output of our create `User` mutation."""
+type CreateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `User` that was created by this mutation."""
+  user: User
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""All input for the create `UserProfile` mutation."""
+input CreateUserProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserProfile` to be created by this mutation."""
+  userProfile: UserProfileInput!
+}
+
+"""The output of our create `UserProfile` mutation."""
+type CreateUserProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserProfile`."""
+  user: User
+
+  """The `UserProfile` that was created by this mutation."""
+  userProfile: UserProfile
+
+  """An edge for our `UserProfile`. May be used by Relay 1."""
+  userProfileEdge(
+    """The method to use when ordering `UserProfile`."""
+    orderBy: [UserProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserProfilesEdge
+}
+
+"""All input for the create `UserVideoCall` mutation."""
+input CreateUserVideoCallInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserVideoCall` to be created by this mutation."""
+  userVideoCall: UserVideoCallInput!
+}
+
+"""The output of our create `UserVideoCall` mutation."""
+type CreateUserVideoCallPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserVideoCall`."""
+  user: User
+
+  """The `UserVideoCall` that was created by this mutation."""
+  userVideoCall: UserVideoCall
+
+  """An edge for our `UserVideoCall`. May be used by Relay 1."""
+  userVideoCallEdge(
+    """The method to use when ordering `UserVideoCall`."""
+    orderBy: [UserVideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserVideoCallsEdge
+
+  """Reads a single `VideoCall` that is related to this `UserVideoCall`."""
+  videoCall: VideoCall
+}
+
+"""All input for the create `VideoCall` mutation."""
+input CreateVideoCallInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `VideoCall` to be created by this mutation."""
+  videoCall: VideoCallInput!
+}
+
+"""The output of our create `VideoCall` mutation."""
+type CreateVideoCallPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """Reads a single `Match` that is related to this `VideoCall`."""
+  match: Match
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `VideoCall` that was created by this mutation."""
+  videoCall: VideoCall
+
+  """An edge for our `VideoCall`. May be used by Relay 1."""
+  videoCallEdge(
+    """The method to use when ordering `VideoCall`."""
+    orderBy: [VideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideoCallsEdge
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""
+A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Datetime
+
+  """Equal to the specified value."""
+  equalTo: Datetime
+
+  """Greater than the specified value."""
+  greaterThan: Datetime
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Datetime
+
+  """Included in the specified list."""
+  in: [Datetime!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: Datetime
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Datetime
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Datetime
+
+  """Not equal to the specified value."""
+  notEqualTo: Datetime
+
+  """Not included in the specified list."""
+  notIn: [Datetime!]
+}
+
+"""
+A filter to be used against Datetime List fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeListFilter {
+  """Any array item is equal to the specified value."""
+  anyEqualTo: Datetime
+
+  """Any array item is greater than the specified value."""
+  anyGreaterThan: Datetime
+
+  """Any array item is greater than or equal to the specified value."""
+  anyGreaterThanOrEqualTo: Datetime
+
+  """Any array item is less than the specified value."""
+  anyLessThan: Datetime
+
+  """Any array item is less than or equal to the specified value."""
+  anyLessThanOrEqualTo: Datetime
+
+  """Any array item is not equal to the specified value."""
+  anyNotEqualTo: Datetime
+
+  """Contained by the specified list of values."""
+  containedBy: [Datetime]
+
+  """Contains the specified list of values."""
+  contains: [Datetime]
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: [Datetime]
+
+  """Equal to the specified value."""
+  equalTo: [Datetime]
+
+  """Greater than the specified value."""
+  greaterThan: [Datetime]
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: [Datetime]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: [Datetime]
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: [Datetime]
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: [Datetime]
+
+  """Not equal to the specified value."""
+  notEqualTo: [Datetime]
+
+  """Overlaps the specified list of values."""
+  overlaps: [Datetime]
+}
+
+"""All input for the `deleteMatchByNodeId` mutation."""
+input DeleteMatchByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Match` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMatch` mutation."""
+input DeleteMatchInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `Match` mutation."""
+type DeleteMatchPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedMatchNodeId: ID
+
+  """The `Match` that was deleted by this mutation."""
+  match: Match
+
+  """An edge for our `Match`. May be used by Relay 1."""
+  matchEdge(
+    """The method to use when ordering `Match`."""
+    orderBy: [MatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MatchesEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `deleteMeetingByNodeId` mutation."""
+input DeleteMeetingByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Meeting` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMeeting` mutation."""
+input DeleteMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `Meeting` mutation."""
+type DeleteMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedMeetingNodeId: ID
+
+  """The `Meeting` that was deleted by this mutation."""
+  meeting: Meeting
+
+  """An edge for our `Meeting`. May be used by Relay 1."""
+  meetingEdge(
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `VideoCall` that is related to this `Meeting`."""
+  videoCall: VideoCall
+}
+
+"""All input for the `deleteObanJobByNodeId` mutation."""
+input DeleteObanJobByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ObanJob` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteObanJob` mutation."""
+input DeleteObanJobInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `ObanJob` mutation."""
+type DeleteObanJobPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedObanJobNodeId: ID
+
+  """The `ObanJob` that was deleted by this mutation."""
+  obanJob: ObanJob
+
+  """An edge for our `ObanJob`. May be used by Relay 1."""
+  obanJobEdge(
+    """The method to use when ordering `ObanJob`."""
+    orderBy: [ObanJobsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ObanJobsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `deleteSchemaMigrationByNodeId` mutation."""
+input DeleteSchemaMigrationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `SchemaMigration` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteSchemaMigration` mutation."""
+input DeleteSchemaMigrationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  version: BigInt!
+}
+
+"""The output of our delete `SchemaMigration` mutation."""
+type DeleteSchemaMigrationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedSchemaMigrationNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `SchemaMigration` that was deleted by this mutation."""
+  schemaMigration: SchemaMigration
+
+  """An edge for our `SchemaMigration`. May be used by Relay 1."""
+  schemaMigrationEdge(
+    """The method to use when ordering `SchemaMigration`."""
+    orderBy: [SchemaMigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SchemaMigrationsEdge
+}
+
+"""All input for the `deleteSocialAccountByNodeId` mutation."""
+input DeleteSocialAccountByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `SocialAccount` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteSocialAccount` mutation."""
+input DeleteSocialAccountInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `SocialAccount` mutation."""
+type DeleteSocialAccountPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedSocialAccountNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `SocialAccount` that was deleted by this mutation."""
+  socialAccount: SocialAccount
+
+  """An edge for our `SocialAccount`. May be used by Relay 1."""
+  socialAccountEdge(
+    """The method to use when ordering `SocialAccount`."""
+    orderBy: [SocialAccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SocialAccountsEdge
+
+  """Reads a single `UserProfile` that is related to this `SocialAccount`."""
+  userProfile: UserProfile
+}
+
+"""All input for the `deleteUserByNodeId` mutation."""
+input DeleteUserByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserFileByNodeId` mutation."""
+input DeleteUserFileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserFile` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserFile` mutation."""
+input DeleteUserFileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `UserFile` mutation."""
+type DeleteUserFilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserFileNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `UserFile` that was deleted by this mutation."""
+  userFile: UserFile
+
+  """An edge for our `UserFile`. May be used by Relay 1."""
+  userFileEdge(
+    """The method to use when ordering `UserFile`."""
+    orderBy: [UserFilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFilesEdge
+
+  """Reads a single `UserProfile` that is related to this `UserFile`."""
+  userProfile: UserProfile
+}
+
+"""All input for the `deleteUserFsmLogByNodeId` mutation."""
+input DeleteUserFsmLogByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserFsmLog` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserFsmLog` mutation."""
+input DeleteUserFsmLogInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `UserFsmLog` mutation."""
+type DeleteUserFsmLogPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserFsmLogNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserFsmLog`."""
+  user: User
+
+  """The `UserFsmLog` that was deleted by this mutation."""
+  userFsmLog: UserFsmLog
+
+  """An edge for our `UserFsmLog`. May be used by Relay 1."""
+  userFsmLogEdge(
+    """The method to use when ordering `UserFsmLog`."""
+    orderBy: [UserFsmLogsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFsmLogsEdge
+}
+
+"""All input for the `deleteUser` mutation."""
+input DeleteUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""All input for the `deleteUserMatchByNodeId` mutation."""
+input DeleteUserMatchByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserMatch` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserMatch` mutation."""
+input DeleteUserMatchInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `UserMatch` mutation."""
+type DeleteUserMatchPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserMatchNodeId: ID
+
+  """Reads a single `Match` that is related to this `UserMatch`."""
+  match: Match
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMatch`."""
+  user: User
+
+  """The `UserMatch` that was deleted by this mutation."""
+  userMatch: UserMatch
+
+  """An edge for our `UserMatch`. May be used by Relay 1."""
+  userMatchEdge(
+    """The method to use when ordering `UserMatch`."""
+    orderBy: [UserMatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMatchesEdge
+}
+
+"""All input for the `deleteUserMeetingByNodeId` mutation."""
+input DeleteUserMeetingByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserMeeting` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserMeeting` mutation."""
+input DeleteUserMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `UserMeeting` mutation."""
+type DeleteUserMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserMeetingNodeId: ID
+
+  """Reads a single `Meeting` that is related to this `UserMeeting`."""
+  meeting: Meeting
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMeeting`."""
+  user: User
+
+  """The `UserMeeting` that was deleted by this mutation."""
+  userMeeting: UserMeeting
+
+  """An edge for our `UserMeeting`. May be used by Relay 1."""
+  userMeetingEdge(
+    """The method to use when ordering `UserMeeting`."""
+    orderBy: [UserMeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMeetingsEdge
+}
+
+"""The output of our delete `User` mutation."""
+type DeleteUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `User` that was deleted by this mutation."""
+  user: User
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""All input for the `deleteUserProfileByNodeId` mutation."""
+input DeleteUserProfileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserProfile` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserProfile` mutation."""
+input DeleteUserProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `UserProfile` mutation."""
+type DeleteUserProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserProfileNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserProfile`."""
+  user: User
+
+  """The `UserProfile` that was deleted by this mutation."""
+  userProfile: UserProfile
+
+  """An edge for our `UserProfile`. May be used by Relay 1."""
+  userProfileEdge(
+    """The method to use when ordering `UserProfile`."""
+    orderBy: [UserProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserProfilesEdge
+}
+
+"""All input for the `deleteUserVideoCallByNodeId` mutation."""
+input DeleteUserVideoCallByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserVideoCall` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserVideoCall` mutation."""
+input DeleteUserVideoCallInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `UserVideoCall` mutation."""
+type DeleteUserVideoCallPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedUserVideoCallNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserVideoCall`."""
+  user: User
+
+  """The `UserVideoCall` that was deleted by this mutation."""
+  userVideoCall: UserVideoCall
+
+  """An edge for our `UserVideoCall`. May be used by Relay 1."""
+  userVideoCallEdge(
+    """The method to use when ordering `UserVideoCall`."""
+    orderBy: [UserVideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserVideoCallsEdge
+
+  """Reads a single `VideoCall` that is related to this `UserVideoCall`."""
+  videoCall: VideoCall
+}
+
+"""All input for the `deleteVideoCallByNodeId` mutation."""
+input DeleteVideoCallByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `VideoCall` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteVideoCall` mutation."""
+input DeleteVideoCallInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+}
+
+"""The output of our delete `VideoCall` mutation."""
+type DeleteVideoCallPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  deletedVideoCallNodeId: ID
+
+  """Reads a single `Match` that is related to this `VideoCall`."""
+  match: Match
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `VideoCall` that was deleted by this mutation."""
+  videoCall: VideoCall
+
+  """An edge for our `VideoCall`. May be used by Relay 1."""
+  videoCallEdge(
+    """The method to use when ordering `VideoCall`."""
+    orderBy: [VideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideoCallsEdge
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """Equal to the specified value."""
+  equalTo: Int
+
+  """Greater than the specified value."""
+  greaterThan: Int
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Int
+
+  """Included in the specified list."""
+  in: [Int!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: Int
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Int
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Int
+
+  """Not equal to the specified value."""
+  notEqualTo: Int
+
+  """Not included in the specified list."""
+  notIn: [Int!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+A filter to be used against JSON fields. All fields are combined with a logical ‘and.’
+"""
+input JSONFilter {
+  """Contained by the specified JSON."""
+  containedBy: JSON
+
+  """Contains the specified JSON."""
+  contains: JSON
+
+  """Contains all of the specified keys."""
+  containsAllKeys: [String!]
+
+  """Contains any of the specified keys."""
+  containsAnyKeys: [String!]
+
+  """Contains the specified key."""
+  containsKey: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: JSON
+
+  """Equal to the specified value."""
+  equalTo: JSON
+
+  """Greater than the specified value."""
+  greaterThan: JSON
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: JSON
+
+  """Included in the specified list."""
+  in: [JSON!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: JSON
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: JSON
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: JSON
+
+  """Not equal to the specified value."""
+  notEqualTo: JSON
+
+  """Not included in the specified list."""
+  notIn: [JSON!]
+}
+
+"""
+A filter to be used against JSON List fields. All fields are combined with a logical ‘and.’
+"""
+input JSONListFilter {
+  """Any array item is equal to the specified value."""
+  anyEqualTo: JSON
+
+  """Any array item is greater than the specified value."""
+  anyGreaterThan: JSON
+
+  """Any array item is greater than or equal to the specified value."""
+  anyGreaterThanOrEqualTo: JSON
+
+  """Any array item is less than the specified value."""
+  anyLessThan: JSON
+
+  """Any array item is less than or equal to the specified value."""
+  anyLessThanOrEqualTo: JSON
+
+  """Any array item is not equal to the specified value."""
+  anyNotEqualTo: JSON
+
+  """Contained by the specified list of values."""
+  containedBy: [JSON]
+
+  """Contains the specified list of values."""
+  contains: [JSON]
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: [JSON]
+
+  """Equal to the specified value."""
+  equalTo: [JSON]
+
+  """Greater than the specified value."""
+  greaterThan: [JSON]
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: [JSON]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: [JSON]
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: [JSON]
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: [JSON]
+
+  """Not equal to the specified value."""
+  notEqualTo: [JSON]
+
+  """Overlaps the specified list of values."""
+  overlaps: [JSON]
+}
+
+type Match implements Node {
+  finalizedAt: Datetime
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `UserMatch`."""
+  userMatches(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMatchCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMatchFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserMatch`."""
+    orderBy: [UserMatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMatchesConnection!
+
+  """Reads and enables pagination through a set of `VideoCall`."""
+  videoCalls(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VideoCallCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: VideoCallFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `VideoCall`."""
+    orderBy: [VideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideoCallsConnection!
+}
+
+"""
+A condition to be used against `Match` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input MatchCondition {
+  """Checks for equality with the object’s `finalizedAt` field."""
+  finalizedAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""
+A filter to be used against `Match` object types. All fields are combined with a logical ‘and.’
+"""
+input MatchFilter {
+  """Checks for all expressions in this list."""
+  and: [MatchFilter!]
+
+  """Filter by the object’s `finalizedAt` field."""
+  finalizedAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: MatchFilter
+
+  """Checks for any expressions in this list."""
+  or: [MatchFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+}
+
+"""An input for mutations affecting `Match`"""
+input MatchInput {
+  finalizedAt: Datetime
+  id: BigInt
+  insertedAt: Datetime!
+  updatedAt: Datetime!
+}
+
+"""
+Represents an update to a `Match`. Fields that are set will be updated.
+"""
+input MatchPatch {
+  finalizedAt: Datetime
+  id: BigInt
+  insertedAt: Datetime
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `Match` values."""
+type MatchesConnection {
+  """
+  A list of edges which contains the `Match` and cursor to aid in pagination.
+  """
+  edges: [MatchesEdge!]!
+
+  """A list of `Match` objects."""
+  nodes: [Match!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Match` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Match` edge in the connection."""
+type MatchesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Match` at the end of the edge."""
+  node: Match!
+}
+
+"""Methods to use when ordering `Match`."""
+enum MatchesOrderBy {
+  FINALIZED_AT_ASC
+  FINALIZED_AT_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+type Meeting implements Node {
+  finalizedAt: Datetime
+  happensAt: Datetime
+  id: BigInt!
+  insertedAt: Datetime!
+  location: JSON
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `UserMeeting`."""
+  userMeetings(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMeetingFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserMeeting`."""
+    orderBy: [UserMeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMeetingsConnection!
+
+  """Reads a single `VideoCall` that is related to this `Meeting`."""
+  videoCall: VideoCall
+  videoCallId: BigInt!
+}
+
+"""
+A condition to be used against `Meeting` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input MeetingCondition {
+  """Checks for equality with the object’s `finalizedAt` field."""
+  finalizedAt: Datetime
+
+  """Checks for equality with the object’s `happensAt` field."""
+  happensAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `location` field."""
+  location: JSON
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `videoCallId` field."""
+  videoCallId: BigInt
+}
+
+"""
+A filter to be used against `Meeting` object types. All fields are combined with a logical ‘and.’
+"""
+input MeetingFilter {
+  """Checks for all expressions in this list."""
+  and: [MeetingFilter!]
+
+  """Filter by the object’s `finalizedAt` field."""
+  finalizedAt: DatetimeFilter
+
+  """Filter by the object’s `happensAt` field."""
+  happensAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `location` field."""
+  location: JSONFilter
+
+  """Negates the expression."""
+  not: MeetingFilter
+
+  """Checks for any expressions in this list."""
+  or: [MeetingFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `videoCallId` field."""
+  videoCallId: BigIntFilter
+}
+
+"""An input for mutations affecting `Meeting`"""
+input MeetingInput {
+  finalizedAt: Datetime
+  happensAt: Datetime
+  id: BigInt
+  insertedAt: Datetime!
+  location: JSON
+  updatedAt: Datetime!
+  videoCallId: BigInt!
+}
+
+"""
+Represents an update to a `Meeting`. Fields that are set will be updated.
+"""
+input MeetingPatch {
+  finalizedAt: Datetime
+  happensAt: Datetime
+  id: BigInt
+  insertedAt: Datetime
+  location: JSON
+  updatedAt: Datetime
+  videoCallId: BigInt
+}
+
+"""A connection to a list of `Meeting` values."""
+type MeetingsConnection {
+  """
+  A list of edges which contains the `Meeting` and cursor to aid in pagination.
+  """
+  edges: [MeetingsEdge!]!
+
+  """A list of `Meeting` objects."""
+  nodes: [Meeting!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Meeting` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Meeting` edge in the connection."""
+type MeetingsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Meeting` at the end of the edge."""
+  node: Meeting!
+}
+
+"""Methods to use when ordering `Meeting`."""
+enum MeetingsOrderBy {
+  FINALIZED_AT_ASC
+  FINALIZED_AT_DESC
+  HAPPENS_AT_ASC
+  HAPPENS_AT_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  LOCATION_ASC
+  LOCATION_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  VIDEO_CALL_ID_ASC
+  VIDEO_CALL_ID_DESC
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `Match`."""
+  createMatch(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMatchInput!
+  ): CreateMatchPayload
+
+  """Creates a single `Meeting`."""
+  createMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMeetingInput!
+  ): CreateMeetingPayload
+
+  """Creates a single `ObanBeat`."""
+  createObanBeat(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateObanBeatInput!
+  ): CreateObanBeatPayload
+
+  """Creates a single `ObanJob`."""
+  createObanJob(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateObanJobInput!
+  ): CreateObanJobPayload
+
+  """Creates a single `SchemaMigration`."""
+  createSchemaMigration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateSchemaMigrationInput!
+  ): CreateSchemaMigrationPayload
+
+  """Creates a single `SocialAccount`."""
+  createSocialAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateSocialAccountInput!
+  ): CreateSocialAccountPayload
+
+  """Creates a single `User`."""
+  createUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserInput!
+  ): CreateUserPayload
+
+  """Creates a single `UserFile`."""
+  createUserFile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserFileInput!
+  ): CreateUserFilePayload
+
+  """Creates a single `UserFsmLog`."""
+  createUserFsmLog(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserFsmLogInput!
+  ): CreateUserFsmLogPayload
+
+  """Creates a single `UserMatch`."""
+  createUserMatch(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserMatchInput!
+  ): CreateUserMatchPayload
+
+  """Creates a single `UserMeeting`."""
+  createUserMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserMeetingInput!
+  ): CreateUserMeetingPayload
+
+  """Creates a single `UserProfile`."""
+  createUserProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserProfileInput!
+  ): CreateUserProfilePayload
+
+  """Creates a single `UserVideoCall`."""
+  createUserVideoCall(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserVideoCallInput!
+  ): CreateUserVideoCallPayload
+
+  """Creates a single `VideoCall`."""
+  createVideoCall(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateVideoCallInput!
+  ): CreateVideoCallPayload
+
+  """Deletes a single `Match` using a unique key."""
+  deleteMatch(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMatchInput!
+  ): DeleteMatchPayload
+
+  """Deletes a single `Match` using its globally unique id."""
+  deleteMatchByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMatchByNodeIdInput!
+  ): DeleteMatchPayload
+
+  """Deletes a single `Meeting` using a unique key."""
+  deleteMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMeetingInput!
+  ): DeleteMeetingPayload
+
+  """Deletes a single `Meeting` using its globally unique id."""
+  deleteMeetingByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMeetingByNodeIdInput!
+  ): DeleteMeetingPayload
+
+  """Deletes a single `ObanJob` using a unique key."""
+  deleteObanJob(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteObanJobInput!
+  ): DeleteObanJobPayload
+
+  """Deletes a single `ObanJob` using its globally unique id."""
+  deleteObanJobByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteObanJobByNodeIdInput!
+  ): DeleteObanJobPayload
+
+  """Deletes a single `SchemaMigration` using a unique key."""
+  deleteSchemaMigration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSchemaMigrationInput!
+  ): DeleteSchemaMigrationPayload
+
+  """Deletes a single `SchemaMigration` using its globally unique id."""
+  deleteSchemaMigrationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSchemaMigrationByNodeIdInput!
+  ): DeleteSchemaMigrationPayload
+
+  """Deletes a single `SocialAccount` using a unique key."""
+  deleteSocialAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSocialAccountInput!
+  ): DeleteSocialAccountPayload
+
+  """Deletes a single `SocialAccount` using its globally unique id."""
+  deleteSocialAccountByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSocialAccountByNodeIdInput!
+  ): DeleteSocialAccountPayload
+
+  """Deletes a single `User` using a unique key."""
+  deleteUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `User` using its globally unique id."""
+  deleteUserByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserByNodeIdInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `UserFile` using a unique key."""
+  deleteUserFile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserFileInput!
+  ): DeleteUserFilePayload
+
+  """Deletes a single `UserFile` using its globally unique id."""
+  deleteUserFileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserFileByNodeIdInput!
+  ): DeleteUserFilePayload
+
+  """Deletes a single `UserFsmLog` using a unique key."""
+  deleteUserFsmLog(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserFsmLogInput!
+  ): DeleteUserFsmLogPayload
+
+  """Deletes a single `UserFsmLog` using its globally unique id."""
+  deleteUserFsmLogByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserFsmLogByNodeIdInput!
+  ): DeleteUserFsmLogPayload
+
+  """Deletes a single `UserMatch` using a unique key."""
+  deleteUserMatch(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserMatchInput!
+  ): DeleteUserMatchPayload
+
+  """Deletes a single `UserMatch` using its globally unique id."""
+  deleteUserMatchByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserMatchByNodeIdInput!
+  ): DeleteUserMatchPayload
+
+  """Deletes a single `UserMeeting` using a unique key."""
+  deleteUserMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserMeetingInput!
+  ): DeleteUserMeetingPayload
+
+  """Deletes a single `UserMeeting` using its globally unique id."""
+  deleteUserMeetingByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserMeetingByNodeIdInput!
+  ): DeleteUserMeetingPayload
+
+  """Deletes a single `UserProfile` using a unique key."""
+  deleteUserProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserProfileInput!
+  ): DeleteUserProfilePayload
+
+  """Deletes a single `UserProfile` using its globally unique id."""
+  deleteUserProfileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserProfileByNodeIdInput!
+  ): DeleteUserProfilePayload
+
+  """Deletes a single `UserVideoCall` using a unique key."""
+  deleteUserVideoCall(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserVideoCallInput!
+  ): DeleteUserVideoCallPayload
+
+  """Deletes a single `UserVideoCall` using its globally unique id."""
+  deleteUserVideoCallByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserVideoCallByNodeIdInput!
+  ): DeleteUserVideoCallPayload
+
+  """Deletes a single `VideoCall` using a unique key."""
+  deleteVideoCall(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideoCallInput!
+  ): DeleteVideoCallPayload
+
+  """Deletes a single `VideoCall` using its globally unique id."""
+  deleteVideoCallByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideoCallByNodeIdInput!
+  ): DeleteVideoCallPayload
+
+  """Updates a single `Match` using a unique key and a patch."""
+  updateMatch(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMatchInput!
+  ): UpdateMatchPayload
+
+  """Updates a single `Match` using its globally unique id and a patch."""
+  updateMatchByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMatchByNodeIdInput!
+  ): UpdateMatchPayload
+
+  """Updates a single `Meeting` using a unique key and a patch."""
+  updateMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMeetingInput!
+  ): UpdateMeetingPayload
+
+  """Updates a single `Meeting` using its globally unique id and a patch."""
+  updateMeetingByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMeetingByNodeIdInput!
+  ): UpdateMeetingPayload
+
+  """Updates a single `ObanJob` using a unique key and a patch."""
+  updateObanJob(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateObanJobInput!
+  ): UpdateObanJobPayload
+
+  """Updates a single `ObanJob` using its globally unique id and a patch."""
+  updateObanJobByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateObanJobByNodeIdInput!
+  ): UpdateObanJobPayload
+
+  """Updates a single `SchemaMigration` using a unique key and a patch."""
+  updateSchemaMigration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSchemaMigrationInput!
+  ): UpdateSchemaMigrationPayload
+
+  """
+  Updates a single `SchemaMigration` using its globally unique id and a patch.
+  """
+  updateSchemaMigrationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSchemaMigrationByNodeIdInput!
+  ): UpdateSchemaMigrationPayload
+
+  """Updates a single `SocialAccount` using a unique key and a patch."""
+  updateSocialAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSocialAccountInput!
+  ): UpdateSocialAccountPayload
+
+  """
+  Updates a single `SocialAccount` using its globally unique id and a patch.
+  """
+  updateSocialAccountByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSocialAccountByNodeIdInput!
+  ): UpdateSocialAccountPayload
+
+  """Updates a single `User` using a unique key and a patch."""
+  updateUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserInput!
+  ): UpdateUserPayload
+
+  """Updates a single `User` using its globally unique id and a patch."""
+  updateUserByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserByNodeIdInput!
+  ): UpdateUserPayload
+
+  """Updates a single `UserFile` using a unique key and a patch."""
+  updateUserFile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserFileInput!
+  ): UpdateUserFilePayload
+
+  """Updates a single `UserFile` using its globally unique id and a patch."""
+  updateUserFileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserFileByNodeIdInput!
+  ): UpdateUserFilePayload
+
+  """Updates a single `UserFsmLog` using a unique key and a patch."""
+  updateUserFsmLog(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserFsmLogInput!
+  ): UpdateUserFsmLogPayload
+
+  """
+  Updates a single `UserFsmLog` using its globally unique id and a patch.
+  """
+  updateUserFsmLogByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserFsmLogByNodeIdInput!
+  ): UpdateUserFsmLogPayload
+
+  """Updates a single `UserMatch` using a unique key and a patch."""
+  updateUserMatch(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserMatchInput!
+  ): UpdateUserMatchPayload
+
+  """Updates a single `UserMatch` using its globally unique id and a patch."""
+  updateUserMatchByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserMatchByNodeIdInput!
+  ): UpdateUserMatchPayload
+
+  """Updates a single `UserMeeting` using a unique key and a patch."""
+  updateUserMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserMeetingInput!
+  ): UpdateUserMeetingPayload
+
+  """
+  Updates a single `UserMeeting` using its globally unique id and a patch.
+  """
+  updateUserMeetingByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserMeetingByNodeIdInput!
+  ): UpdateUserMeetingPayload
+
+  """Updates a single `UserProfile` using a unique key and a patch."""
+  updateUserProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserProfileInput!
+  ): UpdateUserProfilePayload
+
+  """
+  Updates a single `UserProfile` using its globally unique id and a patch.
+  """
+  updateUserProfileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserProfileByNodeIdInput!
+  ): UpdateUserProfilePayload
+
+  """Updates a single `UserVideoCall` using a unique key and a patch."""
+  updateUserVideoCall(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserVideoCallInput!
+  ): UpdateUserVideoCallPayload
+
+  """
+  Updates a single `UserVideoCall` using its globally unique id and a patch.
+  """
+  updateUserVideoCallByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserVideoCallByNodeIdInput!
+  ): UpdateUserVideoCallPayload
+
+  """Updates a single `VideoCall` using a unique key and a patch."""
+  updateVideoCall(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideoCallInput!
+  ): UpdateVideoCallPayload
+
+  """Updates a single `VideoCall` using its globally unique id and a patch."""
+  updateVideoCallByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideoCallByNodeIdInput!
+  ): UpdateVideoCallPayload
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+type ObanBeat {
+  insertedAt: Datetime!
+  limit: Int!
+  node: String!
+  nonce: String!
+  paused: Boolean!
+  queue: String!
+  running: [BigInt]!
+  startedAt: Datetime!
+}
+
+"""
+A condition to be used against `ObanBeat` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input ObanBeatCondition {
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `limit` field."""
+  limit: Int
+
+  """Checks for equality with the object’s `node` field."""
+  node: String
+
+  """Checks for equality with the object’s `nonce` field."""
+  nonce: String
+
+  """Checks for equality with the object’s `paused` field."""
+  paused: Boolean
+
+  """Checks for equality with the object’s `queue` field."""
+  queue: String
+
+  """Checks for equality with the object’s `running` field."""
+  running: [BigInt]
+
+  """Checks for equality with the object’s `startedAt` field."""
+  startedAt: Datetime
+}
+
+"""
+A filter to be used against `ObanBeat` object types. All fields are combined with a logical ‘and.’
+"""
+input ObanBeatFilter {
+  """Checks for all expressions in this list."""
+  and: [ObanBeatFilter!]
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `limit` field."""
+  limit: IntFilter
+
+  """Filter by the object’s `node` field."""
+  node: StringFilter
+
+  """Filter by the object’s `nonce` field."""
+  nonce: StringFilter
+
+  """Negates the expression."""
+  not: ObanBeatFilter
+
+  """Checks for any expressions in this list."""
+  or: [ObanBeatFilter!]
+
+  """Filter by the object’s `paused` field."""
+  paused: BooleanFilter
+
+  """Filter by the object’s `queue` field."""
+  queue: StringFilter
+
+  """Filter by the object’s `running` field."""
+  running: BigIntListFilter
+
+  """Filter by the object’s `startedAt` field."""
+  startedAt: DatetimeFilter
+}
+
+"""An input for mutations affecting `ObanBeat`"""
+input ObanBeatInput {
+  insertedAt: Datetime
+  limit: Int!
+  node: String!
+  nonce: String!
+  paused: Boolean
+  queue: String!
+  running: [BigInt]
+  startedAt: Datetime!
+}
+
+"""A connection to a list of `ObanBeat` values."""
+type ObanBeatsConnection {
+  """
+  A list of edges which contains the `ObanBeat` and cursor to aid in pagination.
+  """
+  edges: [ObanBeatsEdge!]!
+
+  """A list of `ObanBeat` objects."""
+  nodes: [ObanBeat!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `ObanBeat` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `ObanBeat` edge in the connection."""
+type ObanBeatsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ObanBeat` at the end of the edge."""
+  node: ObanBeat!
+}
+
+"""Methods to use when ordering `ObanBeat`."""
+enum ObanBeatsOrderBy {
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  LIMIT_ASC
+  LIMIT_DESC
+  NATURAL
+  NODE_ASC
+  NODE_DESC
+  NONCE_ASC
+  NONCE_DESC
+  PAUSED_ASC
+  PAUSED_DESC
+  QUEUE_ASC
+  QUEUE_DESC
+  RUNNING_ASC
+  RUNNING_DESC
+  STARTED_AT_ASC
+  STARTED_AT_DESC
+}
+
+"""10"""
+type ObanJob implements Node {
+  args: JSON!
+  attempt: Int!
+  attemptedAt: Datetime
+  attemptedBy: [String]
+  cancelledAt: Datetime
+  completedAt: Datetime
+  discardedAt: Datetime
+  errors: [JSON]!
+  id: BigInt!
+  insertedAt: Datetime!
+  maxAttempts: Int!
+  meta: JSON
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  priority: Int!
+  queue: String!
+  scheduledAt: Datetime!
+  state: ObanJobState!
+  tags: [String]
+  worker: String!
+}
+
+"""
+A condition to be used against `ObanJob` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ObanJobCondition {
+  """Checks for equality with the object’s `args` field."""
+  args: JSON
+
+  """Checks for equality with the object’s `attempt` field."""
+  attempt: Int
+
+  """Checks for equality with the object’s `attemptedAt` field."""
+  attemptedAt: Datetime
+
+  """Checks for equality with the object’s `attemptedBy` field."""
+  attemptedBy: [String]
+
+  """Checks for equality with the object’s `cancelledAt` field."""
+  cancelledAt: Datetime
+
+  """Checks for equality with the object’s `completedAt` field."""
+  completedAt: Datetime
+
+  """Checks for equality with the object’s `discardedAt` field."""
+  discardedAt: Datetime
+
+  """Checks for equality with the object’s `errors` field."""
+  errors: [JSON]
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `maxAttempts` field."""
+  maxAttempts: Int
+
+  """Checks for equality with the object’s `meta` field."""
+  meta: JSON
+
+  """Checks for equality with the object’s `priority` field."""
+  priority: Int
+
+  """Checks for equality with the object’s `queue` field."""
+  queue: String
+
+  """Checks for equality with the object’s `scheduledAt` field."""
+  scheduledAt: Datetime
+
+  """Checks for equality with the object’s `state` field."""
+  state: ObanJobState
+
+  """Checks for equality with the object’s `tags` field."""
+  tags: [String]
+
+  """Checks for equality with the object’s `worker` field."""
+  worker: String
+}
+
+"""
+A filter to be used against `ObanJob` object types. All fields are combined with a logical ‘and.’
+"""
+input ObanJobFilter {
+  """Checks for all expressions in this list."""
+  and: [ObanJobFilter!]
+
+  """Filter by the object’s `args` field."""
+  args: JSONFilter
+
+  """Filter by the object’s `attempt` field."""
+  attempt: IntFilter
+
+  """Filter by the object’s `attemptedAt` field."""
+  attemptedAt: DatetimeFilter
+
+  """Filter by the object’s `attemptedBy` field."""
+  attemptedBy: StringListFilter
+
+  """Filter by the object’s `cancelledAt` field."""
+  cancelledAt: DatetimeFilter
+
+  """Filter by the object’s `completedAt` field."""
+  completedAt: DatetimeFilter
+
+  """Filter by the object’s `discardedAt` field."""
+  discardedAt: DatetimeFilter
+
+  """Filter by the object’s `errors` field."""
+  errors: JSONListFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `maxAttempts` field."""
+  maxAttempts: IntFilter
+
+  """Filter by the object’s `meta` field."""
+  meta: JSONFilter
+
+  """Negates the expression."""
+  not: ObanJobFilter
+
+  """Checks for any expressions in this list."""
+  or: [ObanJobFilter!]
+
+  """Filter by the object’s `priority` field."""
+  priority: IntFilter
+
+  """Filter by the object’s `queue` field."""
+  queue: StringFilter
+
+  """Filter by the object’s `scheduledAt` field."""
+  scheduledAt: DatetimeFilter
+
+  """Filter by the object’s `state` field."""
+  state: ObanJobStateFilter
+
+  """Filter by the object’s `tags` field."""
+  tags: StringListFilter
+
+  """Filter by the object’s `worker` field."""
+  worker: StringFilter
+}
+
+"""An input for mutations affecting `ObanJob`"""
+input ObanJobInput {
+  args: JSON
+  attempt: Int
+  attemptedAt: Datetime
+  attemptedBy: [String]
+  cancelledAt: Datetime
+  completedAt: Datetime
+  discardedAt: Datetime
+  errors: [JSON]
+  id: BigInt
+  insertedAt: Datetime
+  maxAttempts: Int
+  meta: JSON
+  priority: Int
+  queue: String
+  scheduledAt: Datetime
+  state: ObanJobState
+  tags: [String]
+  worker: String!
+}
+
+"""
+Represents an update to a `ObanJob`. Fields that are set will be updated.
+"""
+input ObanJobPatch {
+  args: JSON
+  attempt: Int
+  attemptedAt: Datetime
+  attemptedBy: [String]
+  cancelledAt: Datetime
+  completedAt: Datetime
+  discardedAt: Datetime
+  errors: [JSON]
+  id: BigInt
+  insertedAt: Datetime
+  maxAttempts: Int
+  meta: JSON
+  priority: Int
+  queue: String
+  scheduledAt: Datetime
+  state: ObanJobState
+  tags: [String]
+  worker: String
+}
+
+enum ObanJobState {
+  AVAILABLE
+  CANCELLED
+  COMPLETED
+  DISCARDED
+  EXECUTING
+  RETRYABLE
+  SCHEDULED
+}
+
+"""
+A filter to be used against ObanJobState fields. All fields are combined with a logical ‘and.’
+"""
+input ObanJobStateFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: ObanJobState
+
+  """Equal to the specified value."""
+  equalTo: ObanJobState
+
+  """Greater than the specified value."""
+  greaterThan: ObanJobState
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: ObanJobState
+
+  """Included in the specified list."""
+  in: [ObanJobState!]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: ObanJobState
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: ObanJobState
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: ObanJobState
+
+  """Not equal to the specified value."""
+  notEqualTo: ObanJobState
+
+  """Not included in the specified list."""
+  notIn: [ObanJobState!]
+}
+
+"""A connection to a list of `ObanJob` values."""
+type ObanJobsConnection {
+  """
+  A list of edges which contains the `ObanJob` and cursor to aid in pagination.
+  """
+  edges: [ObanJobsEdge!]!
+
+  """A list of `ObanJob` objects."""
+  nodes: [ObanJob!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `ObanJob` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `ObanJob` edge in the connection."""
+type ObanJobsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `ObanJob` at the end of the edge."""
+  node: ObanJob!
+}
+
+"""Methods to use when ordering `ObanJob`."""
+enum ObanJobsOrderBy {
+  ARGS_ASC
+  ARGS_DESC
+  ATTEMPTED_AT_ASC
+  ATTEMPTED_AT_DESC
+  ATTEMPTED_BY_ASC
+  ATTEMPTED_BY_DESC
+  ATTEMPT_ASC
+  ATTEMPT_DESC
+  CANCELLED_AT_ASC
+  CANCELLED_AT_DESC
+  COMPLETED_AT_ASC
+  COMPLETED_AT_DESC
+  DISCARDED_AT_ASC
+  DISCARDED_AT_DESC
+  ERRORS_ASC
+  ERRORS_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  MAX_ATTEMPTS_ASC
+  MAX_ATTEMPTS_DESC
+  META_ASC
+  META_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  PRIORITY_ASC
+  PRIORITY_DESC
+  QUEUE_ASC
+  QUEUE_DESC
+  SCHEDULED_AT_ASC
+  SCHEDULED_AT_DESC
+  STATE_ASC
+  STATE_DESC
+  TAGS_ASC
+  TAGS_DESC
+  WORKER_ASC
+  WORKER_DESC
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  match(id: BigInt!): Match
+
+  """Reads a single `Match` using its globally unique `ID`."""
+  matchByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Match`."""
+    nodeId: ID!
+  ): Match
+
+  """Reads and enables pagination through a set of `Match`."""
+  matches(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MatchCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MatchFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Match`."""
+    orderBy: [MatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MatchesConnection
+  meeting(id: BigInt!): Meeting
+
+  """Reads a single `Meeting` using its globally unique `ID`."""
+  meetingByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Meeting`."""
+    nodeId: ID!
+  ): Meeting
+
+  """Reads and enables pagination through a set of `Meeting`."""
+  meetings(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MeetingFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsConnection
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Reads and enables pagination through a set of `ObanBeat`."""
+  obanBeats(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ObanBeatCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ObanBeatFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `ObanBeat`."""
+    orderBy: [ObanBeatsOrderBy!] = [NATURAL]
+  ): ObanBeatsConnection
+  obanJob(id: BigInt!): ObanJob
+
+  """Reads a single `ObanJob` using its globally unique `ID`."""
+  obanJobByNodeId(
+    """The globally unique `ID` to be used in selecting a single `ObanJob`."""
+    nodeId: ID!
+  ): ObanJob
+
+  """Reads and enables pagination through a set of `ObanJob`."""
+  obanJobs(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ObanJobCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ObanJobFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `ObanJob`."""
+    orderBy: [ObanJobsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ObanJobsConnection
+
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+  schemaMigration(version: BigInt!): SchemaMigration
+
+  """Reads a single `SchemaMigration` using its globally unique `ID`."""
+  schemaMigrationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `SchemaMigration`.
+    """
+    nodeId: ID!
+  ): SchemaMigration
+
+  """Reads and enables pagination through a set of `SchemaMigration`."""
+  schemaMigrations(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SchemaMigrationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SchemaMigrationFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `SchemaMigration`."""
+    orderBy: [SchemaMigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SchemaMigrationsConnection
+  socialAccount(id: BigInt!): SocialAccount
+
+  """Reads a single `SocialAccount` using its globally unique `ID`."""
+  socialAccountByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `SocialAccount`.
+    """
+    nodeId: ID!
+  ): SocialAccount
+
+  """Reads and enables pagination through a set of `SocialAccount`."""
+  socialAccounts(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SocialAccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SocialAccountFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `SocialAccount`."""
+    orderBy: [SocialAccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SocialAccountsConnection
+  user(id: BigInt!): User
+
+  """Reads a single `User` using its globally unique `ID`."""
+  userByNodeId(
+    """The globally unique `ID` to be used in selecting a single `User`."""
+    nodeId: ID!
+  ): User
+  userFile(id: BigInt!): UserFile
+
+  """Reads a single `UserFile` using its globally unique `ID`."""
+  userFileByNodeId(
+    """The globally unique `ID` to be used in selecting a single `UserFile`."""
+    nodeId: ID!
+  ): UserFile
+
+  """Reads and enables pagination through a set of `UserFile`."""
+  userFiles(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserFileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFileFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserFile`."""
+    orderBy: [UserFilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFilesConnection
+  userFsmLog(id: BigInt!): UserFsmLog
+
+  """Reads a single `UserFsmLog` using its globally unique `ID`."""
+  userFsmLogByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `UserFsmLog`.
+    """
+    nodeId: ID!
+  ): UserFsmLog
+
+  """Reads and enables pagination through a set of `UserFsmLog`."""
+  userFsmLogs(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserFsmLogCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFsmLogFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserFsmLog`."""
+    orderBy: [UserFsmLogsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFsmLogsConnection
+  userMatch(id: BigInt!): UserMatch
+
+  """Reads a single `UserMatch` using its globally unique `ID`."""
+  userMatchByNodeId(
+    """The globally unique `ID` to be used in selecting a single `UserMatch`."""
+    nodeId: ID!
+  ): UserMatch
+
+  """Reads and enables pagination through a set of `UserMatch`."""
+  userMatches(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMatchCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMatchFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserMatch`."""
+    orderBy: [UserMatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMatchesConnection
+  userMeeting(id: BigInt!): UserMeeting
+
+  """Reads a single `UserMeeting` using its globally unique `ID`."""
+  userMeetingByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `UserMeeting`.
+    """
+    nodeId: ID!
+  ): UserMeeting
+
+  """Reads and enables pagination through a set of `UserMeeting`."""
+  userMeetings(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMeetingFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserMeeting`."""
+    orderBy: [UserMeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMeetingsConnection
+  userProfile(id: BigInt!): UserProfile
+
+  """Reads a single `UserProfile` using its globally unique `ID`."""
+  userProfileByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `UserProfile`.
+    """
+    nodeId: ID!
+  ): UserProfile
+
+  """Reads and enables pagination through a set of `UserProfile`."""
+  userProfiles(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserProfileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserProfileFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserProfile`."""
+    orderBy: [UserProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserProfilesConnection
+  userVideoCall(id: BigInt!): UserVideoCall
+
+  """Reads a single `UserVideoCall` using its globally unique `ID`."""
+  userVideoCallByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `UserVideoCall`.
+    """
+    nodeId: ID!
+  ): UserVideoCall
+
+  """Reads and enables pagination through a set of `UserVideoCall`."""
+  userVideoCalls(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserVideoCallCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserVideoCallFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserVideoCall`."""
+    orderBy: [UserVideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserVideoCallsConnection
+
+  """Reads and enables pagination through a set of `User`."""
+  users(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersConnection
+  videoCall(id: BigInt!): VideoCall
+
+  """Reads a single `VideoCall` using its globally unique `ID`."""
+  videoCallByNodeId(
+    """The globally unique `ID` to be used in selecting a single `VideoCall`."""
+    nodeId: ID!
+  ): VideoCall
+
+  """Reads and enables pagination through a set of `VideoCall`."""
+  videoCalls(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VideoCallCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: VideoCallFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `VideoCall`."""
+    orderBy: [VideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideoCallsConnection
+}
+
+type SchemaMigration implements Node {
+  insertedAt: Datetime
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  version: BigInt!
+}
+
+"""
+A condition to be used against `SchemaMigration` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SchemaMigrationCondition {
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `version` field."""
+  version: BigInt
+}
+
+"""
+A filter to be used against `SchemaMigration` object types. All fields are combined with a logical ‘and.’
+"""
+input SchemaMigrationFilter {
+  """Checks for all expressions in this list."""
+  and: [SchemaMigrationFilter!]
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: SchemaMigrationFilter
+
+  """Checks for any expressions in this list."""
+  or: [SchemaMigrationFilter!]
+
+  """Filter by the object’s `version` field."""
+  version: BigIntFilter
+}
+
+"""An input for mutations affecting `SchemaMigration`"""
+input SchemaMigrationInput {
+  insertedAt: Datetime
+  version: BigInt!
+}
+
+"""
+Represents an update to a `SchemaMigration`. Fields that are set will be updated.
+"""
+input SchemaMigrationPatch {
+  insertedAt: Datetime
+  version: BigInt
+}
+
+"""A connection to a list of `SchemaMigration` values."""
+type SchemaMigrationsConnection {
+  """
+  A list of edges which contains the `SchemaMigration` and cursor to aid in pagination.
+  """
+  edges: [SchemaMigrationsEdge!]!
+
+  """A list of `SchemaMigration` objects."""
+  nodes: [SchemaMigration!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SchemaMigration` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `SchemaMigration` edge in the connection."""
+type SchemaMigrationsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SchemaMigration` at the end of the edge."""
+  node: SchemaMigration!
+}
+
+"""Methods to use when ordering `SchemaMigration`."""
+enum SchemaMigrationsOrderBy {
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  VERSION_ASC
+  VERSION_DESC
+}
+
+type SocialAccount implements Node {
+  accessToken: String
+  accessTokenMetadata: JSON
+  accountType: String!
+  data: JSON
+  expiresAt: Datetime
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads a single `UserProfile` that is related to this `SocialAccount`."""
+  userProfile: UserProfile
+  userProfileId: BigInt!
+}
+
+"""
+A condition to be used against `SocialAccount` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SocialAccountCondition {
+  """Checks for equality with the object’s `accessToken` field."""
+  accessToken: String
+
+  """Checks for equality with the object’s `accessTokenMetadata` field."""
+  accessTokenMetadata: JSON
+
+  """Checks for equality with the object’s `accountType` field."""
+  accountType: String
+
+  """Checks for equality with the object’s `data` field."""
+  data: JSON
+
+  """Checks for equality with the object’s `expiresAt` field."""
+  expiresAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userProfileId` field."""
+  userProfileId: BigInt
+}
+
+"""
+A filter to be used against `SocialAccount` object types. All fields are combined with a logical ‘and.’
+"""
+input SocialAccountFilter {
+  """Filter by the object’s `accessToken` field."""
+  accessToken: StringFilter
+
+  """Filter by the object’s `accessTokenMetadata` field."""
+  accessTokenMetadata: JSONFilter
+
+  """Filter by the object’s `accountType` field."""
+  accountType: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [SocialAccountFilter!]
+
+  """Filter by the object’s `data` field."""
+  data: JSONFilter
+
+  """Filter by the object’s `expiresAt` field."""
+  expiresAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: SocialAccountFilter
+
+  """Checks for any expressions in this list."""
+  or: [SocialAccountFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userProfileId` field."""
+  userProfileId: BigIntFilter
+}
+
+"""An input for mutations affecting `SocialAccount`"""
+input SocialAccountInput {
+  accessToken: String
+  accessTokenMetadata: JSON
+  accountType: String!
+  data: JSON
+  expiresAt: Datetime
+  id: BigInt
+  insertedAt: Datetime!
+  updatedAt: Datetime!
+  userProfileId: BigInt!
+}
+
+"""
+Represents an update to a `SocialAccount`. Fields that are set will be updated.
+"""
+input SocialAccountPatch {
+  accessToken: String
+  accessTokenMetadata: JSON
+  accountType: String
+  data: JSON
+  expiresAt: Datetime
+  id: BigInt
+  insertedAt: Datetime
+  updatedAt: Datetime
+  userProfileId: BigInt
+}
+
+"""A connection to a list of `SocialAccount` values."""
+type SocialAccountsConnection {
+  """
+  A list of edges which contains the `SocialAccount` and cursor to aid in pagination.
+  """
+  edges: [SocialAccountsEdge!]!
+
+  """A list of `SocialAccount` objects."""
+  nodes: [SocialAccount!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `SocialAccount` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `SocialAccount` edge in the connection."""
+type SocialAccountsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `SocialAccount` at the end of the edge."""
+  node: SocialAccount!
+}
+
+"""Methods to use when ordering `SocialAccount`."""
+enum SocialAccountsOrderBy {
+  ACCESS_TOKEN_ASC
+  ACCESS_TOKEN_DESC
+  ACCESS_TOKEN_METADATA_ASC
+  ACCESS_TOKEN_METADATA_DESC
+  ACCOUNT_TYPE_ASC
+  ACCOUNT_TYPE_DESC
+  DATA_ASC
+  DATA_DESC
+  EXPIRES_AT_ASC
+  EXPIRES_AT_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_PROFILE_ID_ASC
+  USER_PROFILE_ID_DESC
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Equal to the specified value (case-insensitive)."""
+  equalToInsensitive: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than the specified value (case-insensitive)."""
+  greaterThanInsensitive: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Greater than or equal to the specified value (case-insensitive)."""
+  greaterThanOrEqualToInsensitive: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Included in the specified list (case-insensitive)."""
+  inInsensitive: [String!]
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than the specified value (case-insensitive)."""
+  lessThanInsensitive: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Less than or equal to the specified value (case-insensitive)."""
+  lessThanOrEqualToInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """Not equal to the specified value (case-insensitive)."""
+  notEqualToInsensitive: String
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Not included in the specified list (case-insensitive)."""
+  notInInsensitive: [String!]
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLike: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLikeInsensitive: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+}
+
+"""
+A filter to be used against String List fields. All fields are combined with a logical ‘and.’
+"""
+input StringListFilter {
+  """Any array item is equal to the specified value."""
+  anyEqualTo: String
+
+  """Any array item is greater than the specified value."""
+  anyGreaterThan: String
+
+  """Any array item is greater than or equal to the specified value."""
+  anyGreaterThanOrEqualTo: String
+
+  """Any array item is less than the specified value."""
+  anyLessThan: String
+
+  """Any array item is less than or equal to the specified value."""
+  anyLessThanOrEqualTo: String
+
+  """Any array item is not equal to the specified value."""
+  anyNotEqualTo: String
+
+  """Contained by the specified list of values."""
+  containedBy: [String]
+
+  """Contains the specified list of values."""
+  contains: [String]
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: [String]
+
+  """Equal to the specified value."""
+  equalTo: [String]
+
+  """Greater than the specified value."""
+  greaterThan: [String]
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: [String]
+
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Less than the specified value."""
+  lessThan: [String]
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: [String]
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: [String]
+
+  """Not equal to the specified value."""
+  notEqualTo: [String]
+
+  """Overlaps the specified list of values."""
+  overlaps: [String]
+}
+
+"""All input for the `updateMatchByNodeId` mutation."""
+input UpdateMatchByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Match` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Match` being updated.
+  """
+  patch: MatchPatch!
+}
+
+"""All input for the `updateMatch` mutation."""
+input UpdateMatchInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `Match` being updated.
+  """
+  patch: MatchPatch!
+}
+
+"""The output of our update `Match` mutation."""
+type UpdateMatchPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Match` that was updated by this mutation."""
+  match: Match
+
+  """An edge for our `Match`. May be used by Relay 1."""
+  matchEdge(
+    """The method to use when ordering `Match`."""
+    orderBy: [MatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MatchesEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `updateMeetingByNodeId` mutation."""
+input UpdateMeetingByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Meeting` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Meeting` being updated.
+  """
+  patch: MeetingPatch!
+}
+
+"""All input for the `updateMeeting` mutation."""
+input UpdateMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `Meeting` being updated.
+  """
+  patch: MeetingPatch!
+}
+
+"""The output of our update `Meeting` mutation."""
+type UpdateMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Meeting` that was updated by this mutation."""
+  meeting: Meeting
+
+  """An edge for our `Meeting`. May be used by Relay 1."""
+  meetingEdge(
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `VideoCall` that is related to this `Meeting`."""
+  videoCall: VideoCall
+}
+
+"""All input for the `updateObanJobByNodeId` mutation."""
+input UpdateObanJobByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `ObanJob` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `ObanJob` being updated.
+  """
+  patch: ObanJobPatch!
+}
+
+"""All input for the `updateObanJob` mutation."""
+input UpdateObanJobInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `ObanJob` being updated.
+  """
+  patch: ObanJobPatch!
+}
+
+"""The output of our update `ObanJob` mutation."""
+type UpdateObanJobPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `ObanJob` that was updated by this mutation."""
+  obanJob: ObanJob
+
+  """An edge for our `ObanJob`. May be used by Relay 1."""
+  obanJobEdge(
+    """The method to use when ordering `ObanJob`."""
+    orderBy: [ObanJobsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): ObanJobsEdge
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""All input for the `updateSchemaMigrationByNodeId` mutation."""
+input UpdateSchemaMigrationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `SchemaMigration` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `SchemaMigration` being updated.
+  """
+  patch: SchemaMigrationPatch!
+}
+
+"""All input for the `updateSchemaMigration` mutation."""
+input UpdateSchemaMigrationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `SchemaMigration` being updated.
+  """
+  patch: SchemaMigrationPatch!
+  version: BigInt!
+}
+
+"""The output of our update `SchemaMigration` mutation."""
+type UpdateSchemaMigrationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `SchemaMigration` that was updated by this mutation."""
+  schemaMigration: SchemaMigration
+
+  """An edge for our `SchemaMigration`. May be used by Relay 1."""
+  schemaMigrationEdge(
+    """The method to use when ordering `SchemaMigration`."""
+    orderBy: [SchemaMigrationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SchemaMigrationsEdge
+}
+
+"""All input for the `updateSocialAccountByNodeId` mutation."""
+input UpdateSocialAccountByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `SocialAccount` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `SocialAccount` being updated.
+  """
+  patch: SocialAccountPatch!
+}
+
+"""All input for the `updateSocialAccount` mutation."""
+input UpdateSocialAccountInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `SocialAccount` being updated.
+  """
+  patch: SocialAccountPatch!
+}
+
+"""The output of our update `SocialAccount` mutation."""
+type UpdateSocialAccountPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `SocialAccount` that was updated by this mutation."""
+  socialAccount: SocialAccount
+
+  """An edge for our `SocialAccount`. May be used by Relay 1."""
+  socialAccountEdge(
+    """The method to use when ordering `SocialAccount`."""
+    orderBy: [SocialAccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SocialAccountsEdge
+
+  """Reads a single `UserProfile` that is related to this `SocialAccount`."""
+  userProfile: UserProfile
+}
+
+"""All input for the `updateUserByNodeId` mutation."""
+input UpdateUserByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  patch: UserPatch!
+}
+
+"""All input for the `updateUserFileByNodeId` mutation."""
+input UpdateUserFileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserFile` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserFile` being updated.
+  """
+  patch: UserFilePatch!
+}
+
+"""All input for the `updateUserFile` mutation."""
+input UpdateUserFileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `UserFile` being updated.
+  """
+  patch: UserFilePatch!
+}
+
+"""The output of our update `UserFile` mutation."""
+type UpdateUserFilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `UserFile` that was updated by this mutation."""
+  userFile: UserFile
+
+  """An edge for our `UserFile`. May be used by Relay 1."""
+  userFileEdge(
+    """The method to use when ordering `UserFile`."""
+    orderBy: [UserFilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFilesEdge
+
+  """Reads a single `UserProfile` that is related to this `UserFile`."""
+  userProfile: UserProfile
+}
+
+"""All input for the `updateUserFsmLogByNodeId` mutation."""
+input UpdateUserFsmLogByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserFsmLog` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserFsmLog` being updated.
+  """
+  patch: UserFsmLogPatch!
+}
+
+"""All input for the `updateUserFsmLog` mutation."""
+input UpdateUserFsmLogInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `UserFsmLog` being updated.
+  """
+  patch: UserFsmLogPatch!
+}
+
+"""The output of our update `UserFsmLog` mutation."""
+type UpdateUserFsmLogPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserFsmLog`."""
+  user: User
+
+  """The `UserFsmLog` that was updated by this mutation."""
+  userFsmLog: UserFsmLog
+
+  """An edge for our `UserFsmLog`. May be used by Relay 1."""
+  userFsmLogEdge(
+    """The method to use when ordering `UserFsmLog`."""
+    orderBy: [UserFsmLogsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFsmLogsEdge
+}
+
+"""All input for the `updateUser` mutation."""
+input UpdateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  patch: UserPatch!
+}
+
+"""All input for the `updateUserMatchByNodeId` mutation."""
+input UpdateUserMatchByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserMatch` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserMatch` being updated.
+  """
+  patch: UserMatchPatch!
+}
+
+"""All input for the `updateUserMatch` mutation."""
+input UpdateUserMatchInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `UserMatch` being updated.
+  """
+  patch: UserMatchPatch!
+}
+
+"""The output of our update `UserMatch` mutation."""
+type UpdateUserMatchPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """Reads a single `Match` that is related to this `UserMatch`."""
+  match: Match
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMatch`."""
+  user: User
+
+  """The `UserMatch` that was updated by this mutation."""
+  userMatch: UserMatch
+
+  """An edge for our `UserMatch`. May be used by Relay 1."""
+  userMatchEdge(
+    """The method to use when ordering `UserMatch`."""
+    orderBy: [UserMatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMatchesEdge
+}
+
+"""All input for the `updateUserMeetingByNodeId` mutation."""
+input UpdateUserMeetingByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserMeeting` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserMeeting` being updated.
+  """
+  patch: UserMeetingPatch!
+}
+
+"""All input for the `updateUserMeeting` mutation."""
+input UpdateUserMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `UserMeeting` being updated.
+  """
+  patch: UserMeetingPatch!
+}
+
+"""The output of our update `UserMeeting` mutation."""
+type UpdateUserMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """Reads a single `Meeting` that is related to this `UserMeeting`."""
+  meeting: Meeting
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMeeting`."""
+  user: User
+
+  """The `UserMeeting` that was updated by this mutation."""
+  userMeeting: UserMeeting
+
+  """An edge for our `UserMeeting`. May be used by Relay 1."""
+  userMeetingEdge(
+    """The method to use when ordering `UserMeeting`."""
+    orderBy: [UserMeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMeetingsEdge
+}
+
+"""The output of our update `User` mutation."""
+type UpdateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `User` that was updated by this mutation."""
+  user: User
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""All input for the `updateUserProfileByNodeId` mutation."""
+input UpdateUserProfileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserProfile` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserProfile` being updated.
+  """
+  patch: UserProfilePatch!
+}
+
+"""All input for the `updateUserProfile` mutation."""
+input UpdateUserProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `UserProfile` being updated.
+  """
+  patch: UserProfilePatch!
+}
+
+"""The output of our update `UserProfile` mutation."""
+type UpdateUserProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserProfile`."""
+  user: User
+
+  """The `UserProfile` that was updated by this mutation."""
+  userProfile: UserProfile
+
+  """An edge for our `UserProfile`. May be used by Relay 1."""
+  userProfileEdge(
+    """The method to use when ordering `UserProfile`."""
+    orderBy: [UserProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserProfilesEdge
+}
+
+"""All input for the `updateUserVideoCallByNodeId` mutation."""
+input UpdateUserVideoCallByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserVideoCall` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserVideoCall` being updated.
+  """
+  patch: UserVideoCallPatch!
+}
+
+"""All input for the `updateUserVideoCall` mutation."""
+input UpdateUserVideoCallInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `UserVideoCall` being updated.
+  """
+  patch: UserVideoCallPatch!
+}
+
+"""The output of our update `UserVideoCall` mutation."""
+type UpdateUserVideoCallPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserVideoCall`."""
+  user: User
+
+  """The `UserVideoCall` that was updated by this mutation."""
+  userVideoCall: UserVideoCall
+
+  """An edge for our `UserVideoCall`. May be used by Relay 1."""
+  userVideoCallEdge(
+    """The method to use when ordering `UserVideoCall`."""
+    orderBy: [UserVideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserVideoCallsEdge
+
+  """Reads a single `VideoCall` that is related to this `UserVideoCall`."""
+  videoCall: VideoCall
+}
+
+"""All input for the `updateVideoCallByNodeId` mutation."""
+input UpdateVideoCallByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `VideoCall` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `VideoCall` being updated.
+  """
+  patch: VideoCallPatch!
+}
+
+"""All input for the `updateVideoCall` mutation."""
+input UpdateVideoCallInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: BigInt!
+
+  """
+  An object where the defined keys will be set on the `VideoCall` being updated.
+  """
+  patch: VideoCallPatch!
+}
+
+"""The output of our update `VideoCall` mutation."""
+type UpdateVideoCallPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """Reads a single `Match` that is related to this `VideoCall`."""
+  match: Match
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """The `VideoCall` that was updated by this mutation."""
+  videoCall: VideoCall
+
+  """An edge for our `VideoCall`. May be used by Relay 1."""
+  videoCallEdge(
+    """The method to use when ordering `VideoCall`."""
+    orderBy: [VideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideoCallsEdge
+}
+
+type User implements Node {
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  otp: String
+  otpExpiresAt: Datetime
+  phoneNumber: String!
+  smsCode: String
+  state: String!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `UserFsmLog`."""
+  userFsmLogs(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserFsmLogCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFsmLogFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserFsmLog`."""
+    orderBy: [UserFsmLogsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFsmLogsConnection!
+
+  """Reads and enables pagination through a set of `UserMatch`."""
+  userMatches(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMatchCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMatchFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserMatch`."""
+    orderBy: [UserMatchesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMatchesConnection!
+
+  """Reads and enables pagination through a set of `UserMeeting`."""
+  userMeetings(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMeetingFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserMeeting`."""
+    orderBy: [UserMeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMeetingsConnection!
+
+  """Reads and enables pagination through a set of `UserProfile`."""
+  userProfiles(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserProfileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserProfileFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserProfile`."""
+    orderBy: [UserProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserProfilesConnection!
+
+  """Reads and enables pagination through a set of `UserVideoCall`."""
+  userVideoCalls(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserVideoCallCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserVideoCallFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserVideoCall`."""
+    orderBy: [UserVideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserVideoCallsConnection!
+}
+
+"""
+A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input UserCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `otp` field."""
+  otp: String
+
+  """Checks for equality with the object’s `otpExpiresAt` field."""
+  otpExpiresAt: Datetime
+
+  """Checks for equality with the object’s `phoneNumber` field."""
+  phoneNumber: String
+
+  """Checks for equality with the object’s `smsCode` field."""
+  smsCode: String
+
+  """Checks for equality with the object’s `state` field."""
+  state: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+type UserFile implements Node {
+  fileType: String!
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads a single `UserProfile` that is related to this `UserFile`."""
+  userProfile: UserProfile
+  userProfileId: BigInt!
+}
+
+"""
+A condition to be used against `UserFile` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UserFileCondition {
+  """Checks for equality with the object’s `fileType` field."""
+  fileType: String
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userProfileId` field."""
+  userProfileId: BigInt
+}
+
+"""
+A filter to be used against `UserFile` object types. All fields are combined with a logical ‘and.’
+"""
+input UserFileFilter {
+  """Checks for all expressions in this list."""
+  and: [UserFileFilter!]
+
+  """Filter by the object’s `fileType` field."""
+  fileType: StringFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: UserFileFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserFileFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userProfileId` field."""
+  userProfileId: BigIntFilter
+}
+
+"""An input for mutations affecting `UserFile`"""
+input UserFileInput {
+  fileType: String!
+  id: BigInt
+  insertedAt: Datetime!
+  updatedAt: Datetime!
+  userProfileId: BigInt!
+}
+
+"""
+Represents an update to a `UserFile`. Fields that are set will be updated.
+"""
+input UserFilePatch {
+  fileType: String
+  id: BigInt
+  insertedAt: Datetime
+  updatedAt: Datetime
+  userProfileId: BigInt
+}
+
+"""A connection to a list of `UserFile` values."""
+type UserFilesConnection {
+  """
+  A list of edges which contains the `UserFile` and cursor to aid in pagination.
+  """
+  edges: [UserFilesEdge!]!
+
+  """A list of `UserFile` objects."""
+  nodes: [UserFile!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserFile` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserFile` edge in the connection."""
+type UserFilesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserFile` at the end of the edge."""
+  node: UserFile!
+}
+
+"""Methods to use when ordering `UserFile`."""
+enum UserFilesOrderBy {
+  FILE_TYPE_ASC
+  FILE_TYPE_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_PROFILE_ID_ASC
+  USER_PROFILE_ID_DESC
+}
+
+"""
+A filter to be used against `User` object types. All fields are combined with a logical ‘and.’
+"""
+input UserFilter {
+  """Checks for all expressions in this list."""
+  and: [UserFilter!]
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: UserFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserFilter!]
+
+  """Filter by the object’s `otp` field."""
+  otp: StringFilter
+
+  """Filter by the object’s `otpExpiresAt` field."""
+  otpExpiresAt: DatetimeFilter
+
+  """Filter by the object’s `phoneNumber` field."""
+  phoneNumber: StringFilter
+
+  """Filter by the object’s `smsCode` field."""
+  smsCode: StringFilter
+
+  """Filter by the object’s `state` field."""
+  state: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+}
+
+type UserFsmLog implements Node {
+  fromState: String
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  toState: String!
+  updatedAt: Datetime!
+
+  """Reads a single `User` that is related to this `UserFsmLog`."""
+  user: User
+  userId: BigInt!
+}
+
+"""
+A condition to be used against `UserFsmLog` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UserFsmLogCondition {
+  """Checks for equality with the object’s `fromState` field."""
+  fromState: String
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `toState` field."""
+  toState: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: BigInt
+}
+
+"""
+A filter to be used against `UserFsmLog` object types. All fields are combined with a logical ‘and.’
+"""
+input UserFsmLogFilter {
+  """Checks for all expressions in this list."""
+  and: [UserFsmLogFilter!]
+
+  """Filter by the object’s `fromState` field."""
+  fromState: StringFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: UserFsmLogFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserFsmLogFilter!]
+
+  """Filter by the object’s `toState` field."""
+  toState: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: BigIntFilter
+}
+
+"""An input for mutations affecting `UserFsmLog`"""
+input UserFsmLogInput {
+  fromState: String
+  id: BigInt
+  insertedAt: Datetime!
+  toState: String!
+  updatedAt: Datetime!
+  userId: BigInt!
+}
+
+"""
+Represents an update to a `UserFsmLog`. Fields that are set will be updated.
+"""
+input UserFsmLogPatch {
+  fromState: String
+  id: BigInt
+  insertedAt: Datetime
+  toState: String
+  updatedAt: Datetime
+  userId: BigInt
+}
+
+"""A connection to a list of `UserFsmLog` values."""
+type UserFsmLogsConnection {
+  """
+  A list of edges which contains the `UserFsmLog` and cursor to aid in pagination.
+  """
+  edges: [UserFsmLogsEdge!]!
+
+  """A list of `UserFsmLog` objects."""
+  nodes: [UserFsmLog!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserFsmLog` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserFsmLog` edge in the connection."""
+type UserFsmLogsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserFsmLog` at the end of the edge."""
+  node: UserFsmLog!
+}
+
+"""Methods to use when ordering `UserFsmLog`."""
+enum UserFsmLogsOrderBy {
+  FROM_STATE_ASC
+  FROM_STATE_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  TO_STATE_ASC
+  TO_STATE_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+}
+
+"""An input for mutations affecting `User`"""
+input UserInput {
+  id: BigInt
+  insertedAt: Datetime!
+  otp: String
+  otpExpiresAt: Datetime
+  phoneNumber: String!
+  smsCode: String
+  state: String
+  updatedAt: Datetime!
+}
+
+type UserMatch implements Node {
+  chosen: Boolean
+  id: BigInt!
+  initiator: Boolean!
+  insertedAt: Datetime!
+
+  """Reads a single `Match` that is related to this `UserMatch`."""
+  match: Match
+  matchId: BigInt!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  unlockedAt: Datetime
+  updatedAt: Datetime!
+
+  """Reads a single `User` that is related to this `UserMatch`."""
+  user: User
+  userId: BigInt!
+}
+
+"""
+A condition to be used against `UserMatch` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UserMatchCondition {
+  """Checks for equality with the object’s `chosen` field."""
+  chosen: Boolean
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `initiator` field."""
+  initiator: Boolean
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `matchId` field."""
+  matchId: BigInt
+
+  """Checks for equality with the object’s `unlockedAt` field."""
+  unlockedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: BigInt
+}
+
+"""
+A filter to be used against `UserMatch` object types. All fields are combined with a logical ‘and.’
+"""
+input UserMatchFilter {
+  """Checks for all expressions in this list."""
+  and: [UserMatchFilter!]
+
+  """Filter by the object’s `chosen` field."""
+  chosen: BooleanFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `initiator` field."""
+  initiator: BooleanFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `matchId` field."""
+  matchId: BigIntFilter
+
+  """Negates the expression."""
+  not: UserMatchFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserMatchFilter!]
+
+  """Filter by the object’s `unlockedAt` field."""
+  unlockedAt: DatetimeFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: BigIntFilter
+}
+
+"""An input for mutations affecting `UserMatch`"""
+input UserMatchInput {
+  chosen: Boolean
+  id: BigInt
+  initiator: Boolean
+  insertedAt: Datetime!
+  matchId: BigInt!
+  unlockedAt: Datetime
+  updatedAt: Datetime!
+  userId: BigInt!
+}
+
+"""
+Represents an update to a `UserMatch`. Fields that are set will be updated.
+"""
+input UserMatchPatch {
+  chosen: Boolean
+  id: BigInt
+  initiator: Boolean
+  insertedAt: Datetime
+  matchId: BigInt
+  unlockedAt: Datetime
+  updatedAt: Datetime
+  userId: BigInt
+}
+
+"""A connection to a list of `UserMatch` values."""
+type UserMatchesConnection {
+  """
+  A list of edges which contains the `UserMatch` and cursor to aid in pagination.
+  """
+  edges: [UserMatchesEdge!]!
+
+  """A list of `UserMatch` objects."""
+  nodes: [UserMatch!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserMatch` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserMatch` edge in the connection."""
+type UserMatchesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserMatch` at the end of the edge."""
+  node: UserMatch!
+}
+
+"""Methods to use when ordering `UserMatch`."""
+enum UserMatchesOrderBy {
+  CHOSEN_ASC
+  CHOSEN_DESC
+  ID_ASC
+  ID_DESC
+  INITIATOR_ASC
+  INITIATOR_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  MATCH_ID_ASC
+  MATCH_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UNLOCKED_AT_ASC
+  UNLOCKED_AT_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+}
+
+type UserMeeting implements Node {
+  availabilities: [Datetime]
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """Reads a single `Meeting` that is related to this `UserMeeting`."""
+  meeting: Meeting
+  meetingId: BigInt!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads a single `User` that is related to this `UserMeeting`."""
+  user: User
+  userId: BigInt!
+}
+
+"""
+A condition to be used against `UserMeeting` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UserMeetingCondition {
+  """Checks for equality with the object’s `availabilities` field."""
+  availabilities: [Datetime]
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `meetingId` field."""
+  meetingId: BigInt
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: BigInt
+}
+
+"""
+A filter to be used against `UserMeeting` object types. All fields are combined with a logical ‘and.’
+"""
+input UserMeetingFilter {
+  """Checks for all expressions in this list."""
+  and: [UserMeetingFilter!]
+
+  """Filter by the object’s `availabilities` field."""
+  availabilities: DatetimeListFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `meetingId` field."""
+  meetingId: BigIntFilter
+
+  """Negates the expression."""
+  not: UserMeetingFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserMeetingFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: BigIntFilter
+}
+
+"""An input for mutations affecting `UserMeeting`"""
+input UserMeetingInput {
+  availabilities: [Datetime]
+  id: BigInt
+  insertedAt: Datetime!
+  meetingId: BigInt!
+  updatedAt: Datetime!
+  userId: BigInt!
+}
+
+"""
+Represents an update to a `UserMeeting`. Fields that are set will be updated.
+"""
+input UserMeetingPatch {
+  availabilities: [Datetime]
+  id: BigInt
+  insertedAt: Datetime
+  meetingId: BigInt
+  updatedAt: Datetime
+  userId: BigInt
+}
+
+"""A connection to a list of `UserMeeting` values."""
+type UserMeetingsConnection {
+  """
+  A list of edges which contains the `UserMeeting` and cursor to aid in pagination.
+  """
+  edges: [UserMeetingsEdge!]!
+
+  """A list of `UserMeeting` objects."""
+  nodes: [UserMeeting!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserMeeting` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserMeeting` edge in the connection."""
+type UserMeetingsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserMeeting` at the end of the edge."""
+  node: UserMeeting!
+}
+
+"""Methods to use when ordering `UserMeeting`."""
+enum UserMeetingsOrderBy {
+  AVAILABILITIES_ASC
+  AVAILABILITIES_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  MEETING_ID_ASC
+  MEETING_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+}
+
+"""Represents an update to a `User`. Fields that are set will be updated."""
+input UserPatch {
+  id: BigInt
+  insertedAt: Datetime
+  otp: String
+  otpExpiresAt: Datetime
+  phoneNumber: String
+  smsCode: String
+  state: String
+  updatedAt: Datetime
+}
+
+type UserProfile implements Node {
+  age: Int
+  datingPreferences: [String]
+  description: JSON
+  educationLevel: String
+  educationSubject: String
+  employment: String
+  gender: String
+  genderPreferences: [String]
+  height: Int
+  id: BigInt!
+  insertedAt: Datetime!
+  location: JSON
+  name: String
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  politicPreferences: [String]
+  religiousPreferences: [String]
+  score: BigFloat
+
+  """Reads and enables pagination through a set of `SocialAccount`."""
+  socialAccounts(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SocialAccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SocialAccountFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `SocialAccount`."""
+    orderBy: [SocialAccountsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): SocialAccountsConnection!
+  updatedAt: Datetime!
+
+  """Reads a single `User` that is related to this `UserProfile`."""
+  user: User
+
+  """Reads and enables pagination through a set of `UserFile`."""
+  userFiles(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserFileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFileFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserFile`."""
+    orderBy: [UserFilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserFilesConnection!
+  userId: BigInt!
+}
+
+"""
+A condition to be used against `UserProfile` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input UserProfileCondition {
+  """Checks for equality with the object’s `age` field."""
+  age: Int
+
+  """Checks for equality with the object’s `datingPreferences` field."""
+  datingPreferences: [String]
+
+  """Checks for equality with the object’s `description` field."""
+  description: JSON
+
+  """Checks for equality with the object’s `educationLevel` field."""
+  educationLevel: String
+
+  """Checks for equality with the object’s `educationSubject` field."""
+  educationSubject: String
+
+  """Checks for equality with the object’s `employment` field."""
+  employment: String
+
+  """Checks for equality with the object’s `gender` field."""
+  gender: String
+
+  """Checks for equality with the object’s `genderPreferences` field."""
+  genderPreferences: [String]
+
+  """Checks for equality with the object’s `height` field."""
+  height: Int
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `location` field."""
+  location: JSON
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `politicPreferences` field."""
+  politicPreferences: [String]
+
+  """Checks for equality with the object’s `religiousPreferences` field."""
+  religiousPreferences: [String]
+
+  """Checks for equality with the object’s `score` field."""
+  score: BigFloat
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: BigInt
+}
+
+"""
+A filter to be used against `UserProfile` object types. All fields are combined with a logical ‘and.’
+"""
+input UserProfileFilter {
+  """Filter by the object’s `age` field."""
+  age: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserProfileFilter!]
+
+  """Filter by the object’s `datingPreferences` field."""
+  datingPreferences: StringListFilter
+
+  """Filter by the object’s `description` field."""
+  description: JSONFilter
+
+  """Filter by the object’s `educationLevel` field."""
+  educationLevel: StringFilter
+
+  """Filter by the object’s `educationSubject` field."""
+  educationSubject: StringFilter
+
+  """Filter by the object’s `employment` field."""
+  employment: StringFilter
+
+  """Filter by the object’s `gender` field."""
+  gender: StringFilter
+
+  """Filter by the object’s `genderPreferences` field."""
+  genderPreferences: StringListFilter
+
+  """Filter by the object’s `height` field."""
+  height: IntFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `location` field."""
+  location: JSONFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Negates the expression."""
+  not: UserProfileFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserProfileFilter!]
+
+  """Filter by the object’s `politicPreferences` field."""
+  politicPreferences: StringListFilter
+
+  """Filter by the object’s `religiousPreferences` field."""
+  religiousPreferences: StringListFilter
+
+  """Filter by the object’s `score` field."""
+  score: BigFloatFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: BigIntFilter
+}
+
+"""An input for mutations affecting `UserProfile`"""
+input UserProfileInput {
+  age: Int
+  datingPreferences: [String]
+  description: JSON
+  educationLevel: String
+  educationSubject: String
+  employment: String
+  gender: String
+  genderPreferences: [String]
+  height: Int
+  id: BigInt
+  insertedAt: Datetime!
+  location: JSON
+  name: String
+  politicPreferences: [String]
+  religiousPreferences: [String]
+  score: BigFloat
+  updatedAt: Datetime!
+  userId: BigInt!
+}
+
+"""
+Represents an update to a `UserProfile`. Fields that are set will be updated.
+"""
+input UserProfilePatch {
+  age: Int
+  datingPreferences: [String]
+  description: JSON
+  educationLevel: String
+  educationSubject: String
+  employment: String
+  gender: String
+  genderPreferences: [String]
+  height: Int
+  id: BigInt
+  insertedAt: Datetime
+  location: JSON
+  name: String
+  politicPreferences: [String]
+  religiousPreferences: [String]
+  score: BigFloat
+  updatedAt: Datetime
+  userId: BigInt
+}
+
+"""A connection to a list of `UserProfile` values."""
+type UserProfilesConnection {
+  """
+  A list of edges which contains the `UserProfile` and cursor to aid in pagination.
+  """
+  edges: [UserProfilesEdge!]!
+
+  """A list of `UserProfile` objects."""
+  nodes: [UserProfile!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserProfile` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserProfile` edge in the connection."""
+type UserProfilesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserProfile` at the end of the edge."""
+  node: UserProfile!
+}
+
+"""Methods to use when ordering `UserProfile`."""
+enum UserProfilesOrderBy {
+  AGE_ASC
+  AGE_DESC
+  DATING_PREFERENCES_ASC
+  DATING_PREFERENCES_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  EDUCATION_LEVEL_ASC
+  EDUCATION_LEVEL_DESC
+  EDUCATION_SUBJECT_ASC
+  EDUCATION_SUBJECT_DESC
+  EMPLOYMENT_ASC
+  EMPLOYMENT_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER_PREFERENCES_ASC
+  GENDER_PREFERENCES_DESC
+  HEIGHT_ASC
+  HEIGHT_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  LOCATION_ASC
+  LOCATION_DESC
+  NAME_ASC
+  NAME_DESC
+  NATURAL
+  POLITIC_PREFERENCES_ASC
+  POLITIC_PREFERENCES_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  RELIGIOUS_PREFERENCES_ASC
+  RELIGIOUS_PREFERENCES_DESC
+  SCORE_ASC
+  SCORE_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+}
+
+type UserVideoCall implements Node {
+  accessToken: String
+  availabilities: [Datetime]
+  chosen: Boolean
+  id: BigInt!
+  initiator: Boolean!
+  insertedAt: Datetime!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads a single `User` that is related to this `UserVideoCall`."""
+  user: User
+  userId: BigInt!
+
+  """Reads a single `VideoCall` that is related to this `UserVideoCall`."""
+  videoCall: VideoCall
+  videoCallId: BigInt!
+}
+
+"""
+A condition to be used against `UserVideoCall` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input UserVideoCallCondition {
+  """Checks for equality with the object’s `accessToken` field."""
+  accessToken: String
+
+  """Checks for equality with the object’s `availabilities` field."""
+  availabilities: [Datetime]
+
+  """Checks for equality with the object’s `chosen` field."""
+  chosen: Boolean
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `initiator` field."""
+  initiator: Boolean
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: BigInt
+
+  """Checks for equality with the object’s `videoCallId` field."""
+  videoCallId: BigInt
+}
+
+"""
+A filter to be used against `UserVideoCall` object types. All fields are combined with a logical ‘and.’
+"""
+input UserVideoCallFilter {
+  """Filter by the object’s `accessToken` field."""
+  accessToken: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserVideoCallFilter!]
+
+  """Filter by the object’s `availabilities` field."""
+  availabilities: DatetimeListFilter
+
+  """Filter by the object’s `chosen` field."""
+  chosen: BooleanFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `initiator` field."""
+  initiator: BooleanFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Negates the expression."""
+  not: UserVideoCallFilter
+
+  """Checks for any expressions in this list."""
+  or: [UserVideoCallFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: BigIntFilter
+
+  """Filter by the object’s `videoCallId` field."""
+  videoCallId: BigIntFilter
+}
+
+"""An input for mutations affecting `UserVideoCall`"""
+input UserVideoCallInput {
+  accessToken: String
+  availabilities: [Datetime]
+  chosen: Boolean
+  id: BigInt
+  initiator: Boolean
+  insertedAt: Datetime!
+  updatedAt: Datetime!
+  userId: BigInt!
+  videoCallId: BigInt!
+}
+
+"""
+Represents an update to a `UserVideoCall`. Fields that are set will be updated.
+"""
+input UserVideoCallPatch {
+  accessToken: String
+  availabilities: [Datetime]
+  chosen: Boolean
+  id: BigInt
+  initiator: Boolean
+  insertedAt: Datetime
+  updatedAt: Datetime
+  userId: BigInt
+  videoCallId: BigInt
+}
+
+"""A connection to a list of `UserVideoCall` values."""
+type UserVideoCallsConnection {
+  """
+  A list of edges which contains the `UserVideoCall` and cursor to aid in pagination.
+  """
+  edges: [UserVideoCallsEdge!]!
+
+  """A list of `UserVideoCall` objects."""
+  nodes: [UserVideoCall!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserVideoCall` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `UserVideoCall` edge in the connection."""
+type UserVideoCallsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserVideoCall` at the end of the edge."""
+  node: UserVideoCall!
+}
+
+"""Methods to use when ordering `UserVideoCall`."""
+enum UserVideoCallsOrderBy {
+  ACCESS_TOKEN_ASC
+  ACCESS_TOKEN_DESC
+  AVAILABILITIES_ASC
+  AVAILABILITIES_DESC
+  CHOSEN_ASC
+  CHOSEN_DESC
+  ID_ASC
+  ID_DESC
+  INITIATOR_ASC
+  INITIATOR_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+  VIDEO_CALL_ID_ASC
+  VIDEO_CALL_ID_DESC
+}
+
+"""A connection to a list of `User` values."""
+type UsersConnection {
+  """
+  A list of edges which contains the `User` and cursor to aid in pagination.
+  """
+  edges: [UsersEdge!]!
+
+  """A list of `User` objects."""
+  nodes: [User!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `User` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `User` edge in the connection."""
+type UsersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `User` at the end of the edge."""
+  node: User!
+}
+
+"""Methods to use when ordering `User`."""
+enum UsersOrderBy {
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  NATURAL
+  OTP_ASC
+  OTP_DESC
+  OTP_EXPIRES_AT_ASC
+  OTP_EXPIRES_AT_DESC
+  PHONE_NUMBER_ASC
+  PHONE_NUMBER_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  SMS_CODE_ASC
+  SMS_CODE_DESC
+  STATE_ASC
+  STATE_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
+
+type VideoCall implements Node {
+  finalizedAt: Datetime
+  happensAt: Datetime
+  id: BigInt!
+  insertedAt: Datetime!
+
+  """Reads a single `Match` that is related to this `VideoCall`."""
+  match: Match
+  matchId: BigInt!
+
+  """Reads and enables pagination through a set of `Meeting`."""
+  meetings(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MeetingFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsConnection!
+
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  updatedAt: Datetime!
+
+  """Reads and enables pagination through a set of `UserVideoCall`."""
+  userVideoCalls(
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserVideoCallCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserVideoCallFilter
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """The method to use when ordering `UserVideoCall`."""
+    orderBy: [UserVideoCallsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserVideoCallsConnection!
+}
+
+"""
+A condition to be used against `VideoCall` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input VideoCallCondition {
+  """Checks for equality with the object’s `finalizedAt` field."""
+  finalizedAt: Datetime
+
+  """Checks for equality with the object’s `happensAt` field."""
+  happensAt: Datetime
+
+  """Checks for equality with the object’s `id` field."""
+  id: BigInt
+
+  """Checks for equality with the object’s `insertedAt` field."""
+  insertedAt: Datetime
+
+  """Checks for equality with the object’s `matchId` field."""
+  matchId: BigInt
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+}
+
+"""
+A filter to be used against `VideoCall` object types. All fields are combined with a logical ‘and.’
+"""
+input VideoCallFilter {
+  """Checks for all expressions in this list."""
+  and: [VideoCallFilter!]
+
+  """Filter by the object’s `finalizedAt` field."""
+  finalizedAt: DatetimeFilter
+
+  """Filter by the object’s `happensAt` field."""
+  happensAt: DatetimeFilter
+
+  """Filter by the object’s `id` field."""
+  id: BigIntFilter
+
+  """Filter by the object’s `insertedAt` field."""
+  insertedAt: DatetimeFilter
+
+  """Filter by the object’s `matchId` field."""
+  matchId: BigIntFilter
+
+  """Negates the expression."""
+  not: VideoCallFilter
+
+  """Checks for any expressions in this list."""
+  or: [VideoCallFilter!]
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+}
+
+"""An input for mutations affecting `VideoCall`"""
+input VideoCallInput {
+  finalizedAt: Datetime
+  happensAt: Datetime
+  id: BigInt
+  insertedAt: Datetime!
+  matchId: BigInt!
+  updatedAt: Datetime!
+}
+
+"""
+Represents an update to a `VideoCall`. Fields that are set will be updated.
+"""
+input VideoCallPatch {
+  finalizedAt: Datetime
+  happensAt: Datetime
+  id: BigInt
+  insertedAt: Datetime
+  matchId: BigInt
+  updatedAt: Datetime
+}
+
+"""A connection to a list of `VideoCall` values."""
+type VideoCallsConnection {
+  """
+  A list of edges which contains the `VideoCall` and cursor to aid in pagination.
+  """
+  edges: [VideoCallsEdge!]!
+
+  """A list of `VideoCall` objects."""
+  nodes: [VideoCall!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `VideoCall` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `VideoCall` edge in the connection."""
+type VideoCallsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `VideoCall` at the end of the edge."""
+  node: VideoCall!
+}
+
+"""Methods to use when ordering `VideoCall`."""
+enum VideoCallsOrderBy {
+  FINALIZED_AT_ASC
+  FINALIZED_AT_DESC
+  HAPPENS_AT_ASC
+  HAPPENS_AT_DESC
+  ID_ASC
+  ID_DESC
+  INSERTED_AT_ASC
+  INSERTED_AT_DESC
+  MATCH_ID_ASC
+  MATCH_ID_DESC
+  NATURAL
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+}
